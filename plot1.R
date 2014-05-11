@@ -9,3 +9,4 @@ fsub <- subset(f, Date >= min)
 fsub <- subset(fsub, Date <= max)
 hist(fsub$Global_active_power, main="Global Active Power",
       xlab="Global Active Power (kilowatts)", col="red", xlim=range(0:6))
+dev.off()
