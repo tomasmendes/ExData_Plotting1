@@ -11,7 +11,8 @@ max <- as.Date("02/02/2007", format = "%d/%m/%Y")
 fsub <- subset(f, Date >= min)
 fsub <- subset(fsub, Date <= max)
 
-plot(1:nrow(fsub), fsub$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="")
+plot(1:nrow(fsub), fsub$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="", xaxt="n")
+axis(1,at=c(1,nrow(fsub)/2,nrow(fsub)), labels=c("Thu","Fri","Sat"))
 lines(1:nrow(fsub), fsub$Sub_metering_2,col="red")
 lines(1:nrow(fsub), fsub$Sub_metering_3,col="blue")
 legend("topright", pch="-", col=c("black","red","blue"),

@@ -12,14 +12,18 @@ fsub <- subset(f, Date >= min)
 fsub <- subset(fsub, Date <= max)
 
 par(mfrow=c(2,2))
-plot(1:nrow(fsub), fsub$Global_active_power, type="l", ylab="Global Active Power", xlab="")
-plot(1:nrow(fsub), fsub$Voltage, type="l", ylab="Voltage", xlab="datetime")
-plot(1:nrow(fsub), fsub$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="")
+plot(1:nrow(fsub), fsub$Global_active_power, type="l", ylab="Global Active Power", xlab="", xaxt="n")
+axis(1,at=c(1,nrow(fsub)/2,nrow(fsub)), labels=c("Thu","Fri","Sat"))
+plot(1:nrow(fsub), fsub$Voltage, type="l", ylab="Voltage", xlab="datetime", xaxt="n")
+axis(1,at=c(1,nrow(fsub)/2,nrow(fsub)), labels=c("Thu","Fri","Sat"))
+plot(1:nrow(fsub), fsub$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="", xaxt="n")
+axis(1,at=c(1,nrow(fsub)/2,nrow(fsub)), labels=c("Thu","Fri","Sat"))
 lines(1:nrow(fsub), fsub$Sub_metering_2,col="red")
 lines(1:nrow(fsub), fsub$Sub_metering_3,col="blue")
 legend("topright", pch="-", col=c("black","red","blue"),
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-plot(1:nrow(fsub), fsub$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="datetime")
+plot(1:nrow(fsub), fsub$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="datetime", xaxt="n")
+axis(1,at=c(1,nrow(fsub)/2,nrow(fsub)), labels=c("Thu","Fri","Sat"))
 
 
 dev.off()

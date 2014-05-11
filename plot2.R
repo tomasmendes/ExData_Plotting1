@@ -10,5 +10,7 @@ max <- as.Date("02/02/2007", format = "%d/%m/%Y")
 
 fsub <- subset(f, Date >= min)
 fsub <- subset(fsub, Date <= max)
-plot(1:nrow(fsub), fsub$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="")
+plot(1:nrow(fsub), fsub$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="", xaxt="n")
+axis(1,at=c(1,nrow(fsub)/2,nrow(fsub)), labels=c("Thu","Fri","Sat"))
+
 dev.off()
